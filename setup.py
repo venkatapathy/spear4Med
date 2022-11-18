@@ -2,7 +2,7 @@ from setuptools import setup
 import setuptools
 
 setup(
-    name='decile-spear',
+    name='decile-spear4med',
     version='1.0.5',
     author='Ayush Maheshwari, Guttu Sai Abhishek',
     author_email='ayush.hakmn@gmail.com',
