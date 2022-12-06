@@ -17,20 +17,13 @@
 ## Patch Generation from Whole Slide Images
 
 To generate patches from Whole Slide Images(WSI) we use the scrript patchGeneration.py. It contains three types of functions:
-1. Single Patch:
-Specify the following parameters - openslide_patch(for Windows), tiffPath, startX, startY, function = 'single'.
-You can also pass other arguments as well as per your needs.
+1. Single Patch: Specify the following parameters - openslide_patch(for Windows), tiffPath, startX, startY, function = 'single'. You can also pass other arguments as well as per your needs.
 
-2. Random Patches:
-Specify the following parameters - openslide_patch(for Windows), tiffPath, function = 'random'.
-You can also pass other arguments as well as per your needs.
+2. Random Patches: Specify the following parameters - openslide_patch(for Windows), tiffPath, function = 'random'. You can also pass other arguments as well as per your needs.
 
-3. All Patches:
-Specify the following parameters - openslide_patch(for Windows), tiffPath, function = 'all'.
-You can also pass other arguments as well as per your needs.
-Download Openslide binaries from https://openslide.org/download/
+3. All Patches: Specify the following parameters - openslide_patch(for Windows), tiffPath, function = 'all'. You can also pass other arguments as well as per your needs. Download Openslide binaries from https://openslide.org/download/
 
-Arguments:
+4. Arguments:
     * openslide_path - OpenSlide bin path
     * function - 3 types of function(single, all, random)
     * tiffPath - tiff image path
