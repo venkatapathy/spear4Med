@@ -1,6 +1,7 @@
 # Hodgkin's Lymphoma
 
 ## Directory Structure
+```
 .
 +-- archive
 |   +-- old_files_backup
@@ -11,6 +12,7 @@
 +-- rsc_process.py
 +-- eosinophil_process.py
 +-- patchGeneration.py
+```
 
 ## Patch Generation from Whole Slide Images
 
@@ -28,15 +30,15 @@ Specify the following parameters - openslide_patch(for Windows), tiffPath, funct
 You can also pass other arguments as well as per your needs.
 Download Openslide binaries from https://openslide.org/download/
 Arguments:
-openslide_path - OpenSlide bin path
-function - 3 types of function(single, all, random)
-tiffPath - tiff image path
-patch_directory - output directory name to store the patches
-spacing - image spacing, default  = 0.5
-patch_height - height of the patch, default = 256
-patch_width - width of the patch, default = 256
-startX - x-coordinate of the center of the patch
-startY - y-coordinate of the center of the patch
+* openslide_path - OpenSlide bin path
+* function - 3 types of function(single, all, random)
+* tiffPath - tiff image path
+* patch_directory - output directory name to store the patches
+* spacing - image spacing, default  = 0.5
+* patch_height - height of the patch, default = 256
+* patch_width - width of the patch, default = 256
+* startX - x-coordinate of the center of the patch
+* startY - y-coordinate of the center of the patch
 
 Example:
 ~~~~
@@ -53,10 +55,12 @@ The project currently contains two pre-processing scripts, one each for detectin
     * Cell Crops: The Cells(RSCs & Eosinophils) detected by the first step of the processing pipeline is stored in a directory called 'cell' within the output directory.
     * Cell with Nucleoli Crops: The nucleoli detected by the second step of the processing pipeline are annotated on the cell crop. These images are stored in a directory called 'nucleolus' within the output directory.
     * Output Directory Structure:
+        ```
         .
         +-- cell
         +-- nucleolus
         +-- original_patch.jpg
+        ```
 
 The commands for running the two scripts are as given below:
 
