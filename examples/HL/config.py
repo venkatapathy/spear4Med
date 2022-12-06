@@ -1,0 +1,10 @@
+#PATCH
+OPENSLIDE_PATH = r'C:\\Users\\ppara\\4thYearMP\\openslide-win64-20220811\\bin'
+IS_SINGLE = True
+SPACING = 0.25
+PATCH_WIDTH = 256
+PATCH_HEIGHT = 256
+PATH = 'testTiff_2.tiff'
+START_X = 25000
+START_Y = 30000
+PATCH_DIRECTORY = 'patches'
