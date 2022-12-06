@@ -29,16 +29,17 @@ You can also pass other arguments as well as per your needs.
 Specify the following parameters - openslide_patch(for Windows), tiffPath, function = 'all'.
 You can also pass other arguments as well as per your needs.
 Download Openslide binaries from https://openslide.org/download/
+
 Arguments:
-* openslide_path - OpenSlide bin path
-* function - 3 types of function(single, all, random)
-* tiffPath - tiff image path
-* patch_directory - output directory name to store the patches
-* spacing - image spacing, default  = 0.5
-* patch_height - height of the patch, default = 256
-* patch_width - width of the patch, default = 256
-* startX - x-coordinate of the center of the patch
-* startY - y-coordinate of the center of the patch
+    * openslide_path - OpenSlide bin path
+    * function - 3 types of function(single, all, random)
+    * tiffPath - tiff image path
+    * patch_directory - output directory name to store the patches
+    * spacing - image spacing, default  = 0.5
+    * patch_height - height of the patch, default = 256
+    * patch_width - width of the patch, default = 256
+    * startX - x-coordinate of the center of the patch
+    * startY - y-coordinate of the center of the patch
 
 Example:
 ~~~~
