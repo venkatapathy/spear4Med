@@ -32,15 +32,17 @@ from math import sqrt
 debug=False
 use_cuda = torch.cuda.is_available()
 
+DATAPATH='/home/venkat/Projects/workbook/spear4Med/examples/PathDetection/data/training.h5'
 #open the ds file
-ds = h5py.File('/home/venkat/Projects/workbook/spear4Med/examples/PathDetection/data/training.h5', 'r')
+ds = h5py.File(DATAPATH, 'r')
 
 #get a random list of 50 patches
 randomlist = random.sample(range(1, 20000), 50)
 
 
+CSVPATH='/home/venkat/Projects/workbook/spear4Med/examples/PathDetection/output/test/test1.csv'
 # results of the labeling functions
-f = open('/home/venkat/Projects/workbook/spear4Med/examples/PathDetection/output/test/test1.csv', 'w')
+f = open(CSVPATH, 'w')
 
 #roi = open('/home/venkat/Projects/workbook/spear4Med/examples/PathDetection/output/test/roi.csv', 'w')
 
