@@ -55,6 +55,8 @@ def generate_single_patch():
     filename = PATCH_DIRECTORY + '/single_patch.jpg' 
     cv2.imwrite(filename, patch)
 
+#generate random patches for a budget
+
 
 if __name__ == '__main__': 
     if(IS_SINGLE): 

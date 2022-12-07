@@ -29,7 +29,7 @@ from math import sqrt
 
 
 
-debug=True
+debug=False
 use_cuda = torch.cuda.is_available()
 
 #open the ds file

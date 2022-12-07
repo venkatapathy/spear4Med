@@ -122,9 +122,7 @@ for patchno in randomlist:
         plt.close()
     
      #image based score
-    ds_gray=rgb2gray(ds['x'][patchno])
-    thresh = threshold_otsu(ds_gray)
-    dsmask = ds_gray < thresh
+
     #dsmask=morphology.remove_small_holes(dsmask,10)
     #dsmask=morphology.remove_small_objects(dsmask,20)
     #find individual object

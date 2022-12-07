@@ -1,3 +1,9 @@
+#all custom folders
+examples/PathDetection/data
+examples/PathDetection/output
+examples/PathDetection/data
+examples/PathDetection/output
+
 __pycache__/
 *.py[cod]
 data/
