@@ -9,7 +9,7 @@ tiffPath = parser.add_argument('--tiffPath', metavar='tif', type=str,
                     help='tiff image path')
 parser.add_argument('--patch_directory', metavar='Output', default='patches', type=str, 
                     help='output patch directory')
-parser.add_argument('--spacing', metavar='S', default=0.5, type=float, 
+parser.add_argument('--spacing', metavar='S', default=0.25, type=float, 
                     help='image spacing')
 parser.add_argument('--patch_height', metavar='H', default=256, type=int, 
                     help='height of the image patch')
@@ -19,7 +19,7 @@ startX = parser.add_argument('--startX', metavar='X', type=float,
                     help='centerX of the image patch')
 startY = parser.add_argument('--startY', metavar='Y', type=float, 
                     help='centerY of the image patch')
-
+budget = parser.add_argument('--budget',help='No of Random patches to generate',type=int,default=10)
 args = parser.parse_args()
 
 
@@ -109,14 +109,11 @@ def generate_random_patch(path,
     patch_directory, 
     patch_height, 
     patch_width,
+    budget
 ):
     image = WholeSlideImage(path)
     dimensions = image.get_shape_from_spacing(spacing)
 
-    start_x = random.randint(patch_width, dimensions[0] - patch_width)
-    start_y = random.randint(patch_height, dimensions[1] - patch_height)
-
-    patch = image.get_patch(start_x, start_y, patch_width, patch_height, spacing)
 
     try:
         os.mkdir(patch_directory)
@@ -124,8 +121,14 @@ def generate_random_patch(path,
     except FileExistsError:
         print("Directory " , patch_directory ,  " already exists")
 
-    filename = patch_directory + '/random_patch.jpg' 
-    cv2.imwrite(filename, patch)
+    for i in range(budget):
+        start_x = random.randint(patch_width, dimensions[0] - patch_width)
+        start_y = random.randint(patch_height, dimensions[1] - patch_height)
+
+        patch = image.get_patch(start_x, start_y, patch_width, patch_height, spacing)
+
+        filename = patch_directory + '/random_patch'+str(i)+'.jpg' 
+        cv2.imwrite(filename, patch)
 
 
 if(args.function == 'single'):
@@ -134,7 +137,7 @@ if(args.function == 'single'):
 
 elif(args.function == 'random'):
     generate_random_patch(args.tiffPath, args.spacing, args.patch_directory, 
-                args.patch_height, args.patch_width)
+                args.patch_height, args.patch_width,args.budget)
 
 elif(args.function == 'all'):
     generate_all_patches(args.tiffPath, args.spacing, args.patch_directory, 

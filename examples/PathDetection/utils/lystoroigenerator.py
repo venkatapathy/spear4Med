@@ -29,7 +29,7 @@ from math import sqrt
 
 
 
-debug=False
+debug=True
 use_cuda = torch.cuda.is_available()
 
 DATAPATH='/home/venkat/Projects/workbook/spear4Med/examples/PathDetection/data/training.h5'
