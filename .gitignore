@@ -1,8 +1,9 @@
 #all custom folders
 examples/PathDetection/data
 examples/PathDetection/output
-examples/PathDetection/data
-examples/PathDetection/output
+examples/HL/data
+examples/HL/output
+
 
 __pycache__/
 *.py[cod]

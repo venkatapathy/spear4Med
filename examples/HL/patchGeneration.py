@@ -1,5 +1,5 @@
 import argparse
-
+""" 
 parser = argparse.ArgumentParser(description='Patch Generate')
 openslide_path = parser.add_argument('--openslide_path', metavar='OpenSlide', type=str, 
                     help='OpenSlide bin path')
@@ -33,6 +33,7 @@ if args.function is None:
                                  'Function to be invoked must be specifid, should be single, random or all')
 
 
+ """
 import os
 if hasattr(os, 'add_dll_directory'):
     # Python >= 3.8 on Windows
@@ -127,8 +128,34 @@ def generate_random_patch(path,
     filename = patch_directory + '/random_patch.jpg' 
     cv2.imwrite(filename, patch)
 
+'''Generate N Random Patches'''
+def generate_random_patches(path, 
+    spacing, 
+    patch_directory, 
+    patch_height, 
+    patch_width,
+    count
+):
+    image = WholeSlideImage(path)
+    dimensions = image.get_shape_from_spacing(spacing)
 
-if(args.function == 'single'):
+    
+    try:
+        os.mkdir(patch_directory)
+        print("Directory " , patch_directory ,  " Created ") 
+    except FileExistsError:
+        print("Directory " , patch_directory ,  " already exists")
+
+    for i in range(count):
+        
+        start_x = random.randint(patch_width, dimensions[0] - patch_width)
+        start_y = random.randint(patch_height, dimensions[1] - patch_height)
+        patch = image.get_patch(start_x, start_y, patch_width, patch_height, spacing)
+        cv2.imwrite(patch_directory + f'/patch_{i}.jpg', patch)
+    
+
+
+""" if(args.function == 'single'):
     generate_single_patch(args.tiffPath, args.spacing, args.patch_directory, 
                 args.patch_height, args.patch_width, args.startX, args.startY)
 
@@ -141,4 +168,4 @@ elif(args.function == 'all'):
                 args.patch_height, args.patch_width)
 
 else:
-    print('Please enter a valid function name: single or random or all')
+    print('Please enter a valid function name: single or random or all') """
